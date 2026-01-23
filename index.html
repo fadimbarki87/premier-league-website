@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Premier League Agent</title>
+  <title>Premier League AI Agent</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <img src="me.jpg" class="photo">
+<header class="top">
+  <img src="me.jpg" class="side-photo">
   <img src="premier-league.png" class="logo">
-  <img src="haaland.jpg" class="photo">
+  <img src="haaland.jpg" class="side-photo">
 </header>
 
 <h1>Premier League AI Agent</h1>
@@ -20,10 +20,13 @@
   Example: Which Liverpool player is Muslim, has more than 50 goals, and is left-footed?
 </p>
 
-<section id="chat">
-  <div id="messages"></div>
-  <input id="question" placeholder="Ask a question..." />
-  <button onclick="askAgent()">Ask</button>
+<section class="chat">
+  <div id="messages" class="messages"></div>
+
+  <div class="input-row">
+    <input id="question" placeholder="Ask a question..." />
+    <button onclick="askAgent()">Ask</button>
+  </div>
 </section>
 
 <h2>Premier League Players Database</h2>
