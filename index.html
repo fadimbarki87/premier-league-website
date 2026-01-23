@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <title>Premier League AI Agent</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="top">
-  <img src="me.jpg" class="side-photo">
-  <img src="premier-league.png" class="logo">
-  <img src="haaland.jpg" class="side-photo">
+  <img src="me.jpg" class="side-photo" alt="Me">
+  <img src="premier-league.png" class="logo" alt="Premier League">
+  <img src="haaland.jpg" class="side-photo" alt="Haaland">
 </header>
 
 <h1>Premier League AI Agent</h1>
@@ -31,12 +32,19 @@
 
 <h2>Premier League Players Database</h2>
 
-<input id="search" placeholder="Search player (e.g. Salah)" onkeyup="filterTable()">
+<input
+  id="search"
+  placeholder="Search"
+  onkeyup="filterTable()"
+/>
 
-<table id="playersTable">
-  <thead></thead>
-  <tbody></tbody>
-</table>
+<!-- ✅ THIS IS THE IMPORTANT FIX -->
+<div class="table-wrapper">
+  <table id="playersTable">
+    <thead></thead>
+    <tbody></tbody>
+  </table>
+</div>
 
 <script src="script.js"></script>
 </body>
