@@ -1,9 +1,7 @@
 const API_URL = "https://premier-league-agent.onrender.com/ask";
+const CSV_URL = "premier_league_players.csv";
 
-let allRows = [];
-
-/* ================= CHAT ================= */
-
+/* CHAT */
 async function askAgent() {
   const input = document.getElementById("question");
   const messages = document.getElementById("messages");
@@ -28,46 +26,49 @@ async function askAgent() {
   }
 }
 
-/* ================= TABLE ================= */
-
+/* TABLE */
 async function loadTable() {
-  const response = await fetch("premier_league_players.csv");
-  const text = await response.text();
+  const res = await fetch(CSV_URL);
+  const text = await res.text();
 
-  const rows = text.trim().split("\n").map(r => r.split(","));
-  const table = document.getElementById("playersTable");
-  const thead = table.querySelector("thead");
-  const tbody = table.querySelector("tbody");
-
-  const headers = rows[0];
-  allRows = rows.slice(1);
-
-  /* Header */
-  thead.innerHTML =
-    "<tr>" + headers.map(h => `<th>${h}</th>`).join("") + "</tr>";
-
-  renderRows(allRows);
-}
-
-function renderRows(rows) {
+  const rows = text.split("\n").map(r => r.split(","));
+  const thead = document.querySelector("#playersTable thead");
   const tbody = document.querySelector("#playersTable tbody");
+
+  thead.innerHTML = "";
   tbody.innerHTML = "";
 
-  rows.forEach(r => {
-    tbody.innerHTML +=
-      "<tr>" + r.map(c => `<td>${c}</td>`).join("") + "</tr>";
+  // header
+  const headerRow = document.createElement("tr");
+  rows[0].forEach(col => {
+    const th = document.createElement("th");
+    th.textContent = col;
+    headerRow.appendChild(th);
+  });
+  thead.appendChild(headerRow);
+
+  // data
+  rows.slice(1).forEach(r => {
+    if (r.length < 2) return;
+    const tr = document.createElement("tr");
+    r.forEach(cell => {
+      const td = document.createElement("td");
+      td.textContent = cell;
+      tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
   });
 }
 
+/* SEARCH */
 function filterTable() {
-  const q = document.getElementById("search").value.toLowerCase();
-
-  const filtered = allRows.filter(r =>
-    r.join(" ").toLowerCase().includes(q)
-  );
-
-  renderRows(filtered);
+  const value = document.getElementById("search").value.toLowerCase();
+  document.querySelectorAll("#playersTable tbody tr").forEach(row => {
+    row.style.display = row.textContent.toLowerCase().includes(value)
+      ? ""
+      : "none";
+  });
 }
 
-/* AUTO LOAD TABLE */
+/* LOAD TABLE ON PAGE LOAD */
 window.onload = loadTable;
