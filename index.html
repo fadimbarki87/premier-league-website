@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Premier League Agent</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <img src="me.jpg" class="photo">
+  <img src="premier-league.png" class="logo">
+  <img src="haaland.jpg" class="photo">
+</header>
+
+<h1>Premier League AI Agent</h1>
+
+<p class="hint">
+  You can ask questions that can be answered from the database.<br>
+  Example: Which Liverpool player is Muslim, has more than 50 goals, and is left-footed?
+</p>
+
+<section id="chat">
+  <div id="messages"></div>
+  <input id="question" placeholder="Ask a question..." />
+  <button onclick="askAgent()">Ask</button>
+</section>
+
+<h2>Premier League Players Database</h2>
+
+<input id="search" placeholder="Search player (e.g. Salah)" onkeyup="filterTable()">
+
+<table id="playersTable">
+  <thead></thead>
+  <tbody></tbody>
+</table>
+
+<script src="script.js"></script>
+</body>
+</html>
