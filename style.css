@@ -1,11 +1,10 @@
-/* ===== RESET ===== */
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  padding: 1vh;
+  padding: 1vh 2vw;
   font-family: Arial, sans-serif;
   text-align: center;
   height: 100vh;
@@ -18,21 +17,21 @@ header.top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1100px;
-  margin: 0 auto;
-  height: 12vh;            /* 🔑 relative to screen */
-  min-height: 80px;
+  max-width: 1200px;
+  margin: 0 auto 1vh;
+  height: 14vh;
 }
 
 .side-photo {
-  height: 9vh;
-  max-height: 110px;
+  height: 12vh;
+  max-height: 120px;
   width: auto;
+  object-fit: contain;
   border-radius: 10px;
 }
 
 .logo {
-  height: 7vh;
+  height: 9vh;
   max-height: 90px;
   width: auto;
 }
@@ -41,11 +40,11 @@ header.top {
 
 h1 {
   margin: 0.5vh 0;
-  font-size: 2.2vh;
+  font-size: clamp(18px, 2.5vw, 24px);
 }
 
 .hint {
-  font-size: 1.4vh;
+  font-size: clamp(12px, 1.6vw, 14px);
   color: #555;
   margin-bottom: 1vh;
 }
@@ -53,57 +52,44 @@ h1 {
 /* ===== CHAT ===== */
 
 .chat {
-  max-width: 700px;
+  max-width: 720px;
   margin: 0 auto 1vh;
 }
 
 .messages {
-  height: 14vh;
-  min-height: 90px;
+  height: 18vh;
+  min-height: 100px;
   border: 1px solid #ccc;
-  padding: 0.8vh;
+  padding: 8px;
   overflow-y: auto;
   text-align: left;
-  font-size: 1.4vh;
+  font-size: 13px;
 }
 
 .input-row {
   display: flex;
+  gap: 8px;
   justify-content: center;
-  gap: 0.5vw;
-  margin-top: 0.5vh;
+  margin-top: 6px;
 }
 
 input {
   width: 65%;
-  padding: 0.6vh;
-  font-size: 1.4vh;
+  padding: 6px;
+  font-size: 14px;
 }
 
 button {
-  padding: 0.6vh 1.2vh;
-  font-size: 1.4vh;
+  padding: 6px 14px;
   cursor: pointer;
 }
 
 /* ===== TABLE ===== */
 
-h2 {
-  margin: 0.8vh 0;
-  font-size: 1.9vh;
-}
-
-#search {
-  width: 60%;
-  padding: 0.6vh;
-  font-size: 1.4vh;
-  margin-bottom: 0.5vh;
-}
-
 .table-wrapper {
   max-width: 95%;
   margin: 0 auto;
-  height: 26vh;            /* 🔑 internal scroll only */
+  height: 28vh;
   min-height: 160px;
   overflow-y: auto;
   border: 1px solid #ccc;
@@ -116,8 +102,8 @@ table {
 
 th, td {
   border: 1px solid #ccc;
-  padding: 0.4vh;
-  font-size: 1.3vh;
+  padding: 4px;
+  font-size: 12px;
 }
 
 thead {
@@ -130,22 +116,22 @@ thead {
 
 @media (max-width: 600px) {
   header.top {
-    height: 14vh;
-  }
-
-  .side-photo {
-    height: 8vh;
-  }
-
-  .logo {
-    height: 6vh;
-  }
-
-  .messages {
     height: 12vh;
   }
 
+  .side-photo {
+    height: 10vh;
+  }
+
+  .logo {
+    height: 8vh;
+  }
+
+  .messages {
+    height: 16vh;
+  }
+
   .table-wrapper {
-    height: 28vh;
+    height: 26vh;
   }
 }
