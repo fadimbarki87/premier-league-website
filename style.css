@@ -3,89 +3,80 @@ body {
   text-align: center;
   margin: 0;
   padding: 20px;
-  background: #f5f5f5; /* helps table visibility */
 }
 
-/* TOP HEADER */
-.top {
+/* ===== HEADER ===== */
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
 }
 
-/* 🔥 YOUR PHOTO + HAALAND PHOTO (TWICE BIGGER) */
-.side-photo {
-  width: 320px;          /* was 180px */
+/* YOUR PHOTO + HAALAND */
+.photo {
+  width: 360px;          /* TWICE BIGGER */
   border-radius: 12px;
 }
 
-/* LOGO */
+/* PREMIER LEAGUE LOGO */
 .logo {
-  width: 120px;
+  width: 160px;
 }
 
-/* HINT TEXT */
+/* ===== TEXT ===== */
 .hint {
   color: #555;
   margin-bottom: 20px;
 }
 
-/* CHAT */
-.chat {
+/* ===== CHAT ===== */
+#chat {
   max-width: 700px;
   margin: 0 auto 40px;
-  background: white;
-  padding: 15px;
-  border-radius: 8px;
 }
 
-.messages {
+#messages {
   border: 1px solid #ccc;
   height: 220px;
   overflow-y: auto;
   padding: 10px;
   text-align: left;
   margin-bottom: 10px;
-  background: #fafafa;
 }
 
-.input-row {
-  display: flex;
-  gap: 10px;
-}
-
-input {
-  flex: 1;
+#chat input {
+  width: 75%;
   padding: 8px;
 }
 
-button {
+#chat button {
   padding: 8px 16px;
   cursor: pointer;
 }
 
-/* 🔥 TABLE FIX (THIS IS WHY YOU “DON’T SEE IT”) */
+/* ===== TABLE SEARCH ===== */
+#search {
+  width: 300px;
+  padding: 8px;
+  margin: 20px auto;
+  display: block;
+}
+
+/* ===== TABLE ===== */
 table {
-  width: 90%;
-  margin: 30px auto;
+  width: 95%;
+  margin: 20px auto;
   border-collapse: collapse;
-  background: white;     /* VERY IMPORTANT */
+  display: table;        /* FORCE VISIBILITY */
 }
 
 th, td {
   border: 1px solid #ccc;
   padding: 8px;
-  text-align: left;
+  text-align: center;
 }
 
 thead {
   background: #eee;
-}
-
-/* SEARCH INPUT */
-#search {
-  padding: 10px;
-  width: 300px;
-  margin-bottom: 10px;
 }
