@@ -10,14 +10,24 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
   margin-bottom: 20px;
+  flex-wrap: wrap; /* prevents overflow */
 }
 
 /* YOUR PHOTO + HAALAND */
 .photo {
-  width: 360px;          /* TWICE BIGGER */
+  max-width: 280px;   /* big but safe */
+  width: 100%;
   border-radius: 12px;
 }
+
+/* PREMIER LEAGUE LOGO */
+.logo {
+  max-width: 140px;
+  width: 100%;
+}
+
 
 /* PREMIER LEAGUE LOGO */
 .logo {
