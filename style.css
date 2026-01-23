@@ -1,0 +1,64 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  text-align: center;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.photo {
+  width: 80px;
+  border-radius: 50%;
+}
+
+.logo {
+  width: 140px;
+}
+
+#chat {
+  width: 60%;
+  margin: 20px auto;
+}
+
+#messages {
+  border: 1px solid #ccc;
+  height: 200px;
+  overflow-y: auto;
+  padding: 10px;
+  text-align: left;
+}
+
+#question {
+  width: 70%;
+  padding: 8px;
+}
+
+button {
+  padding: 8px 12px;
+}
+
+.hint {
+  font-size: 14px;
+  color: #555;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 6px;
+}
+
+.highlight {
+  background-color: #ffeeba;
+}
