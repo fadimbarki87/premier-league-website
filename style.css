@@ -11,7 +11,7 @@ body {
   text-align: center;
 }
 
-/* ===== HEADER ===== */
+/* ===== HEADER (DESKTOP) ===== */
 
 header.top {
   position: relative;
@@ -38,8 +38,6 @@ header.top {
   right: 0;
 }
 
-/* TRUE CENTER */
-
 .center-brand {
   position: absolute;
   top: 50%;
@@ -59,10 +57,9 @@ header.top {
 h1 {
   margin: 0 0 6px;
   font-size: 30px;
-  letter-spacing: 0.5px;
 }
 
-/* ===== INTRO + EXAMPLES ===== */
+/* ===== INTRO ===== */
 
 .intro {
   font-size: 14px;
@@ -73,12 +70,6 @@ h1 {
 .examples p {
   margin: 2px 0;
   font-size: 14px;
-  color: #e6e6e6;
-}
-
-.examples p:first-child {
-  margin-top: 6px;
-  color: #9aa4b2;
 }
 
 .languages {
@@ -86,8 +77,6 @@ h1 {
   font-size: 13px;
   color: #9aa4b2;
 }
-
-/* ===== NOTE ===== */
 
 .note {
   font-size: 12px;
@@ -113,10 +102,6 @@ h1 {
   font-size: 14px;
 }
 
-.messages div {
-  margin-bottom: 8px;
-}
-
 .input-row {
   display: flex;
   gap: 12px;
@@ -130,7 +115,6 @@ input {
   border: 1px solid #2a2e39;
   background: #0f1115;
   color: #fff;
-  font-size: 14px;
 }
 
 button {
@@ -139,19 +123,12 @@ button {
   border: none;
   background: #3b82f6;
   color: white;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #2563eb;
 }
 
 /* ===== TABLE ===== */
 
 h2 {
   margin: 32px 0 12px;
-  font-size: 20px;
 }
 
 .table-wrapper {
@@ -164,28 +141,14 @@ h2 {
   background: #171a21;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th, td {
-  padding: 9px;
-  font-size: 12px;
-  border-bottom: 1px solid #2a2e39;
-}
-
-thead {
-  position: sticky;
-  top: 0;
-  background: #1f2430;
-}
-
-/* ===== MOBILE ===== */
+/* ===== MOBILE FIX (IMPORTANT PART) ===== */
 
 @media (max-width: 900px) {
+
   header.top {
+    position: static;
     height: auto;
+    margin-bottom: 32px;   /* 🔑 THIS FIXES THE OVERLAP */
     display: flex;
     flex-direction: column;
     align-items: center;
