@@ -8,20 +8,22 @@
 <body>
 
 <header class="top">
-  <img src="me.jpg" class="side-photo">
-  <img src="premier-league.png" class="logo">
-  <img src="haaland.jpg" class="side-photo">
+  <img src="me.jpg" class="side-photo left">
+  <div class="center-brand">
+    <img src="premier-league.png" class="logo">
+    <h1>Premier League AI Agent</h1>
+  </div>
+  <img src="haaland.jpg" class="side-photo right">
 </header>
-
-<h1>Premier League AI Agent</h1>
 
 <p class="hint">
   Ask questions that can be answered from the Premier League players table below.<br>
-  Example: <i>Which Man City player is Blond and left-footed?</i>
+  Example: <i>Which Man City player is blond and left-footed?</i>
+  Example: <i>Who is better Salah or Haaland in terms of goals?</i>
 </p>
 
-<p class="hint">
-  <strong>Note:</strong> First request may take up to ~1 minute due to cold start and cost reasons.
+<p class="note">
+  First request may take up to ~1 minute due to cold start.
 </p>
 
 <section class="chat">
@@ -41,7 +43,7 @@
 
 <input
   id="search"
-  placeholder="Search (e.g. Erling)"
+  placeholder="Search players..."
   onkeyup="filterTable()"
 />
 
