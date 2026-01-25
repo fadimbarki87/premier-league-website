@@ -11,7 +11,7 @@ body {
   text-align: center;
 }
 
-/* ===== HEADER (DESKTOP) ===== */
+/* ===== HEADER ===== */
 
 header.top {
   position: relative;
@@ -20,6 +20,7 @@ header.top {
   height: 230px;
 }
 
+/* Side photos sit on top, but the CENTER text will no longer extend under them */
 .side-photo {
   position: absolute;
   top: 10px;
@@ -28,6 +29,7 @@ header.top {
   border-radius: 18px;
   object-fit: cover;
   box-shadow: 0 16px 45px rgba(0,0,0,0.65);
+  z-index: 2;
 }
 
 .side-photo.left {
@@ -38,15 +40,21 @@ header.top {
   right: 0;
 }
 
+/* TRUE CENTER + NO OVERLAP */
 .center-brand {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 700px;
+
+  /* KEY FIX: do not allow this block to reach into photo zones */
+  width: min(700px, calc(100% - 520px));
+  padding: 0 12px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 1;
 }
 
 .logo {
@@ -57,9 +65,10 @@ header.top {
 h1 {
   margin: 0 0 6px;
   font-size: 30px;
+  letter-spacing: 0.5px;
 }
 
-/* ===== INTRO ===== */
+/* ===== INTRO + EXAMPLES ===== */
 
 .intro {
   font-size: 14px;
@@ -70,6 +79,12 @@ h1 {
 .examples p {
   margin: 2px 0;
   font-size: 14px;
+  color: #e6e6e6;
+}
+
+.examples p:first-child {
+  margin-top: 6px;
+  color: #9aa4b2;
 }
 
 .languages {
@@ -77,6 +92,8 @@ h1 {
   font-size: 13px;
   color: #9aa4b2;
 }
+
+/* ===== NOTE ===== */
 
 .note {
   font-size: 12px;
@@ -102,6 +119,10 @@ h1 {
   font-size: 14px;
 }
 
+.messages div {
+  margin-bottom: 8px;
+}
+
 .input-row {
   display: flex;
   gap: 12px;
@@ -115,6 +136,7 @@ input {
   border: 1px solid #2a2e39;
   background: #0f1115;
   color: #fff;
+  font-size: 14px;
 }
 
 button {
@@ -123,12 +145,19 @@ button {
   border: none;
   background: #3b82f6;
   color: white;
+  font-size: 14px;
+  cursor: pointer;
 }
 
-/* ===== TABLE ===== */
+button:hover {
+  background: #2563eb;
+}
+
+/* ===== TABLE (UNCHANGED LOOK) ===== */
 
 h2 {
   margin: 32px 0 12px;
+  font-size: 20px;
 }
 
 .table-wrapper {
@@ -141,14 +170,29 @@ h2 {
   background: #171a21;
 }
 
-/* ===== MOBILE FIX (IMPORTANT PART) ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 9px;
+  font-size: 12px;
+  border-bottom: 1px solid #2a2e39;
+}
+
+thead {
+  position: sticky;
+  top: 0;
+  background: #1f2430;
+}
+
+/* ===== MOBILE ===== */
 
 @media (max-width: 900px) {
-
   header.top {
-    position: static;
     height: auto;
-    margin-bottom: 32px;   /* 🔑 THIS FIXES THE OVERLAP */
+    margin-bottom: 28px; /* KEY: gives breathing room so next section never sits under images */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -158,11 +202,15 @@ h2 {
   .side-photo {
     position: static;
     height: 140px;
+    max-width: 90%;
   }
 
   .center-brand {
     position: static;
     transform: none;
+    width: 100%;
+    max-width: 700px;
+    padding: 0 10px;
   }
 
   .messages {
