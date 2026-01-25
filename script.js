@@ -1,7 +1,6 @@
 const API_URL = "https://premier-league-agent.onrender.com/ask";
 const CSV_URL = "premier_league_players.csv";
 
-/* SEND ON ENTER */
 function handleEnter(event) {
   if (event.key === "Enter") {
     event.preventDefault();
@@ -9,7 +8,6 @@ function handleEnter(event) {
   }
 }
 
-/* CHAT */
 async function askAgent() {
   const input = document.getElementById("question");
   const messages = document.getElementById("messages");
@@ -35,7 +33,6 @@ async function askAgent() {
   }
 }
 
-/* TABLE */
 async function loadTable() {
   const res = await fetch(CSV_URL);
   const text = await res.text();
@@ -67,7 +64,6 @@ async function loadTable() {
   });
 }
 
-/* SEARCH */
 function filterTable() {
   const value = document.getElementById("search").value.toLowerCase();
   document.querySelectorAll("#playersTable tbody tr").forEach(row => {
