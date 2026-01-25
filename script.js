@@ -31,7 +31,7 @@ async function askAgent() {
     messages.innerHTML += `<div><b>Agent:</b> ${data.answer}</div>`;
     messages.scrollTop = messages.scrollHeight;
   } catch (err) {
-    messages.innerHTML += `<div style="color:red;"><b>Error:</b> ${err}</div>`;
+    messages.innerHTML += `<div style="color:#f87171;"><b>Error:</b> ${err}</div>`;
   }
 }
 
