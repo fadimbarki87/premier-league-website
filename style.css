@@ -4,7 +4,7 @@
 
 body {
   margin: 0;
-  padding: 24px;
+  padding: 28px;
   font-family: system-ui, Arial, sans-serif;
   background: #0f1115;
   color: #e6e6e6;
@@ -17,73 +17,94 @@ header.top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto 24px;
+  max-width: 1300px;
+  margin: 0 auto 28px;
 }
 
 .center-brand {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 
 .logo {
-  height: 72px;
+  height: 80px;
 }
 
 .side-photo {
-  height: 140px;
+  height: 180px;
   width: auto;
-  border-radius: 14px;
+  border-radius: 16px;
   object-fit: cover;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.6);
 }
 
 .side-photo.left {
-  transform: translateY(10px);
+  transform: translateY(14px);
 }
 
 .side-photo.right {
-  transform: translateY(-10px);
+  transform: translateY(-14px);
 }
 
 /* ===== TEXT ===== */
 
 h1 {
   margin: 0;
-  font-size: 28px;
-  letter-spacing: 0.5px;
+  font-size: 30px;
+  letter-spacing: 0.6px;
 }
 
 h2 {
-  margin: 32px 0 12px;
+  margin: 36px 0 14px;
   font-size: 20px;
 }
 
-.hint {
-  color: #b0b0b0;
+.examples {
+  max-width: 720px;
+  margin: 0 auto 12px;
+  text-align: left;
+  background: #171a21;
+  border: 1px solid #2a2e39;
+  border-radius: 12px;
+  padding: 14px 18px;
+}
+
+.examples p {
+  margin: 0 0 6px;
   font-size: 14px;
-  margin-bottom: 6px;
+  color: #cbd5e1;
+}
+
+.examples ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 14px;
+  color: #b0b0b0;
+}
+
+.examples li {
+  margin-bottom: 4px;
 }
 
 .note {
-  color: #888;
+  color: #8b8b8b;
   font-size: 12px;
-  margin-bottom: 24px;
+  margin-bottom: 26px;
 }
 
 /* ===== CHAT ===== */
 
 .chat {
   max-width: 720px;
-  margin: 0 auto 28px;
+  margin: 0 auto 30px;
 }
 
 .messages {
-  height: 180px;
-  border-radius: 12px;
-  padding: 12px;
+  height: 190px;
+  border-radius: 14px;
+  padding: 14px;
   overflow-y: auto;
   text-align: left;
   background: #171a21;
@@ -97,14 +118,14 @@ h2 {
 
 .input-row {
   display: flex;
-  gap: 10px;
-  margin-top: 10px;
+  gap: 12px;
+  margin-top: 12px;
 }
 
 input {
   flex: 1;
-  padding: 10px 12px;
-  border-radius: 10px;
+  padding: 11px 14px;
+  border-radius: 12px;
   border: 1px solid #2a2e39;
   background: #0f1115;
   color: #fff;
@@ -116,8 +137,8 @@ input::placeholder {
 }
 
 button {
-  padding: 10px 18px;
-  border-radius: 10px;
+  padding: 11px 20px;
+  border-radius: 12px;
   border: none;
   background: #3b82f6;
   color: white;
@@ -134,9 +155,9 @@ button:hover {
 .table-wrapper {
   max-width: 100%;
   margin: 0 auto;
-  max-height: 320px;
+  max-height: 340px;
   overflow-y: auto;
-  border-radius: 12px;
+  border-radius: 14px;
   border: 1px solid #2a2e39;
   background: #171a21;
 }
@@ -147,7 +168,7 @@ table {
 }
 
 th, td {
-  padding: 8px;
+  padding: 9px;
   font-size: 12px;
   border-bottom: 1px solid #2a2e39;
 }
@@ -164,19 +185,19 @@ th {
 }
 
 tbody tr:hover {
-  background: rgba(255,255,255,0.03);
+  background: rgba(255,255,255,0.04);
 }
 
 /* ===== MOBILE ===== */
 
-@media (max-width: 700px) {
+@media (max-width: 750px) {
   header.top {
     flex-direction: column;
-    gap: 16px;
+    gap: 18px;
   }
 
   .side-photo {
-    height: 120px;
+    height: 150px;
   }
 
   .messages {
