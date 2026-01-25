@@ -4,7 +4,7 @@
 
 body {
   margin: 0;
-  padding: 32px;
+  padding: 28px;
   font-family: system-ui, Arial, sans-serif;
   background: radial-gradient(circle at top, #1a1f2b, #0f1115 60%);
   color: #e6e6e6;
@@ -16,19 +16,18 @@ body {
 header.top {
   position: relative;
   max-width: 1400px;
-  margin: 0 auto 32px;
-  height: 260px;
+  margin: 0 auto 18px;
+  height: 230px;
 }
 
 .side-photo {
   position: absolute;
-  top: 20px;
-  height: 220px;
-  max-width: 260px;
-  width: auto;
+  top: 10px;
+  height: 200px;
+  max-width: 240px;
   border-radius: 18px;
   object-fit: cover;
-  box-shadow: 0 18px 50px rgba(0,0,0,0.65);
+  box-shadow: 0 16px 45px rgba(0,0,0,0.65);
 }
 
 .side-photo.left {
@@ -40,66 +39,73 @@ header.top {
 }
 
 /* TRUE CENTER */
+
 .center-brand {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  max-width: 700px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
 }
 
 .logo {
-  height: 90px;
+  height: 78px;
+  margin-bottom: 6px;
 }
 
 h1 {
-  margin: 0;
-  font-size: 32px;
-  letter-spacing: 0.6px;
+  margin: 0 0 6px;
+  font-size: 30px;
+  letter-spacing: 0.5px;
 }
 
-/* ===== TEXT ===== */
+/* ===== INTRO + EXAMPLES ===== */
 
-h2 {
-  margin: 40px 0 14px;
-  font-size: 20px;
-}
-
-.examples {
-  max-width: 760px;
-  margin: 0 auto 14px;
-  padding: 16px 20px;
-  background: rgba(23,26,33,0.7);
-  border: 1px solid #2a2e39;
-  border-radius: 14px;
+.intro {
+  font-size: 14px;
+  color: #cbd5e1;
+  margin: 6px 0 10px;
 }
 
 .examples p {
-  margin: 6px 0;
+  margin: 2px 0;
   font-size: 14px;
-  color: #cbd5e1;
+  color: #e6e6e6;
 }
 
+.examples p:first-child {
+  margin-top: 6px;
+  color: #9aa4b2;
+}
+
+.languages {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #9aa4b2;
+}
+
+/* ===== NOTE ===== */
+
 .note {
-  color: #8b8b8b;
   font-size: 12px;
-  margin-bottom: 28px;
+  color: #8b8b8b;
+  margin-bottom: 14px;
 }
 
 /* ===== CHAT ===== */
 
 .chat {
   max-width: 760px;
-  margin: 0 auto 32px;
+  margin: 0 auto 24px;
 }
 
 .messages {
-  height: 200px;
+  height: 180px;
   border-radius: 16px;
-  padding: 16px;
+  padding: 14px;
   overflow-y: auto;
   text-align: left;
   background: #171a21;
@@ -114,12 +120,12 @@ h2 {
 .input-row {
   display: flex;
   gap: 12px;
-  margin-top: 12px;
+  margin-top: 10px;
 }
 
 input {
   flex: 1;
-  padding: 12px 14px;
+  padding: 11px 14px;
   border-radius: 14px;
   border: 1px solid #2a2e39;
   background: #0f1115;
@@ -128,7 +134,7 @@ input {
 }
 
 button {
-  padding: 12px 22px;
+  padding: 11px 22px;
   border-radius: 14px;
   border: none;
   background: #3b82f6;
@@ -142,6 +148,11 @@ button:hover {
 }
 
 /* ===== TABLE ===== */
+
+h2 {
+  margin: 32px 0 12px;
+  font-size: 20px;
+}
 
 .table-wrapper {
   max-width: 100%;
@@ -170,7 +181,7 @@ thead {
   background: #1f2430;
 }
 
-/* ===== MOBILE SAFETY ===== */
+/* ===== MOBILE ===== */
 
 @media (max-width: 900px) {
   header.top {
@@ -178,17 +189,20 @@ thead {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 18px;
+    gap: 16px;
   }
 
   .side-photo {
     position: static;
-    height: 150px;
-    transform: none;
+    height: 140px;
   }
 
   .center-brand {
     position: static;
     transform: none;
+  }
+
+  .messages {
+    height: 160px;
   }
 }
