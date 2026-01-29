@@ -1,8 +1,6 @@
 const API_URL = "https://premier-league-agent.onrender.com";
 const CSV_URL = "premier_league_players.csv";
 
-/* ===== SESSION ===== */
-
 function getSessionId() {
   let sid = sessionStorage.getItem("session_id");
   if (!sid) {
@@ -14,16 +12,12 @@ function getSessionId() {
 
 let SESSION_ID = getSessionId();
 
-/* ===== INPUT ===== */
-
 function handleEnter(event) {
   if (event.key === "Enter") {
     event.preventDefault();
     askAgent();
   }
 }
-
-/* ===== CHAT ===== */
 
 async function askAgent() {
   const input = document.getElementById("question");
@@ -54,8 +48,6 @@ async function askAgent() {
   }
 }
 
-/* ===== RESET ===== */
-
 async function resetChat() {
   try {
     await fetch(`${API_URL}/reset?session_id=${SESSION_ID}`, {
@@ -67,8 +59,6 @@ async function resetChat() {
   sessionStorage.setItem("session_id", SESSION_ID);
   document.getElementById("messages").innerHTML = "";
 }
-
-/* ===== TABLE ===== */
 
 async function loadTable() {
   const res = await fetch(CSV_URL);
@@ -109,19 +99,5 @@ function filterTable() {
       : "none";
   });
 }
-
-/* ===== CLICK EXAMPLES TO FILL INPUT ===== */
-
-document.addEventListener("click", (e) => {
-  const p = e.target.closest(".examples p");
-  if (!p) return;
-  if (p.querySelector("strong")) return;
-
-  const input = document.getElementById("question");
-  input.value = p.textContent;
-  input.focus();
-});
-
-/* ===== INIT ===== */
 
 window.onload = loadTable;
