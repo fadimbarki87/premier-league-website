@@ -20,7 +20,6 @@ header.top {
   height: 230px;
 }
 
-/* Side photos sit on top, but the CENTER text will no longer extend under them */
 .side-photo {
   position: absolute;
   top: 10px;
@@ -32,29 +31,19 @@ header.top {
   z-index: 2;
 }
 
-.side-photo.left {
-  left: 0;
-}
+.side-photo.left { left: 0; }
+.side-photo.right { right: 0; }
 
-.side-photo.right {
-  right: 0;
-}
-
-/* TRUE CENTER + NO OVERLAP */
 .center-brand {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
-  /* KEY FIX: do not allow this block to reach into photo zones */
   width: min(700px, calc(100% - 520px));
   padding: 0 12px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 1;
 }
 
 .logo {
@@ -65,7 +54,6 @@ header.top {
 h1 {
   margin: 0 0 6px;
   font-size: 30px;
-  letter-spacing: 0.5px;
 }
 
 /* ===== INTRO + EXAMPLES ===== */
@@ -76,15 +64,21 @@ h1 {
   margin: 6px 0 10px;
 }
 
+.examples {
+  max-width: 620px;
+}
+
 .examples p {
   margin: 2px 0;
-  font-size: 14px;
+  font-size: 13px;
+  line-height: 1.35;
   color: #e6e6e6;
+  cursor: pointer;
 }
 
 .examples p:first-child {
-  margin-top: 6px;
   color: #9aa4b2;
+  cursor: default;
 }
 
 .languages {
@@ -119,10 +113,6 @@ h1 {
   font-size: 14px;
 }
 
-.messages div {
-  margin-bottom: 8px;
-}
-
 .input-row {
   display: flex;
   gap: 12px;
@@ -136,7 +126,6 @@ input {
   border: 1px solid #2a2e39;
   background: #0f1115;
   color: #fff;
-  font-size: 14px;
 }
 
 button {
@@ -145,7 +134,6 @@ button {
   border: none;
   background: #3b82f6;
   color: white;
-  font-size: 14px;
   cursor: pointer;
 }
 
@@ -153,7 +141,7 @@ button:hover {
   background: #2563eb;
 }
 
-/* ===== TABLE (UNCHANGED LOOK) ===== */
+/* ===== TABLE ===== */
 
 h2 {
   margin: 32px 0 12px;
@@ -161,8 +149,6 @@ h2 {
 }
 
 .table-wrapper {
-  max-width: 100%;
-  margin: 0 auto;
   max-height: 360px;
   overflow-y: auto;
   border-radius: 16px;
@@ -192,10 +178,8 @@ thead {
 @media (max-width: 900px) {
   header.top {
     height: auto;
-    margin-bottom: 28px; /* KEY: gives breathing room so next section never sits under images */
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 16px;
   }
 
@@ -209,8 +193,6 @@ thead {
     position: static;
     transform: none;
     width: 100%;
-    max-width: 700px;
-    padding: 0 10px;
   }
 
   .messages {
