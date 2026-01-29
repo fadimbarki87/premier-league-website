@@ -1,6 +1,21 @@
 const API_URL = "https://premier-league-agent.onrender.com/ask";
 const CSV_URL = "premier_league_players.csv";
 
+/**
+ * Generate or reuse a session ID per browser tab.
+ * sessionStorage survives reloads but resets on tab close.
+ */
+function getSessionId() {
+  let sid = sessionStorage.getItem("session_id");
+  if (!sid) {
+    sid = crypto.randomUUID();
+    sessionStorage.setItem("session_id", sid);
+  }
+  return sid;
+}
+
+const SESSION_ID = getSessionId();
+
 function handleEnter(event) {
   if (event.key === "Enter") {
     event.preventDefault();
@@ -22,12 +37,16 @@ async function askAgent() {
     const response = await fetch(API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ question })
+      body: JSON.stringify({
+        session_id: SESSION_ID,
+        question: question
+      })
     });
 
     const data = await response.json();
     messages.innerHTML += `<div><b>Agent:</b> ${data.answer}</div>`;
     messages.scrollTop = messages.scrollHeight;
+
   } catch (err) {
     messages.innerHTML += `<div style="color:#f87171;"><b>Error:</b> ${err}</div>`;
   }
