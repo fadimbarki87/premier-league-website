@@ -40,6 +40,24 @@ The website is built with plain HTML, CSS, and JavaScript and is hosted using Gi
 
 ---
 
+## Follow-Up Questions (Conversation Context)
+
+The frontend supports conversational follow-up questions within a single browser session.
+
+A user can ask an initial question about a player and then continue with short follow-ups
+without repeating the player name.
+
+Example:
+- "What is Mohamed Salah’s religion?"
+- "And his preferred foot?"
+- "And his club?"
+
+The conversation context is maintained for the duration of the session.
+Refreshing the page starts a new conversation.
+
+
+---
+
 ## Notes
 
 - This frontend is intentionally simple and framework-free.
