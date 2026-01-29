@@ -46,6 +46,9 @@
       onkeydown="handleEnter(event)"
     />
     <button onclick="askAgent()">Ask</button>
+    <button onclick="resetConversation()" class="reset-btn">
+      Reset
+    </button>
   </div>
 </section>
 
@@ -65,5 +68,13 @@
 </div>
 
 <script src="script.js"></script>
+
+<script>
+  function resetConversation() {
+    sessionStorage.removeItem("session_id");
+    document.getElementById("messages").innerHTML = "";
+  }
+</script>
+
 </body>
 </html>
