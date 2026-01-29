@@ -1,4 +1,4 @@
-const API_URL = "https://premier-league-agent.onrender.com/ask";
+const API_URL = "https://premier-league-agent.onrender.com";
 const CSV_URL = "premier_league_players.csv";
 
 /**
@@ -14,7 +14,7 @@ function getSessionId() {
   return sid;
 }
 
-const SESSION_ID = getSessionId();
+let SESSION_ID = getSessionId();
 
 function handleEnter(event) {
   if (event.key === "Enter") {
@@ -34,7 +34,7 @@ async function askAgent() {
   input.value = "";
 
   try {
-    const response = await fetch(API_URL, {
+    const response = await fetch(`${API_URL}/ask`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -50,6 +50,26 @@ async function askAgent() {
   } catch (err) {
     messages.innerHTML += `<div style="color:#f87171;"><b>Error:</b> ${err}</div>`;
   }
+}
+
+/**
+ * Reset chat properly:
+ * - clears backend session
+ * - creates a new session_id
+ * - clears UI
+ */
+async function resetChat() {
+  try {
+    await fetch(`${API_URL}/reset?session_id=${SESSION_ID}`, {
+      method: "POST"
+    });
+  } catch (_) {
+    // even if reset fails, we still rotate session
+  }
+
+  SESSION_ID = crypto.randomUUID();
+  sessionStorage.setItem("session_id", SESSION_ID);
+  document.getElementById("messages").innerHTML = "";
 }
 
 async function loadTable() {
