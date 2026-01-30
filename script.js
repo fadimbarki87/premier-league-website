@@ -1,16 +1,5 @@
-const API_URL = "https://premier-league-agent.onrender.com";
+const API_URL = "https://premier-league-agent.onrender.com/ask";
 const CSV_URL = "premier_league_players.csv";
-
-function getSessionId() {
-  let sid = sessionStorage.getItem("session_id");
-  if (!sid) {
-    sid = crypto.randomUUID();
-    sessionStorage.setItem("session_id", sid);
-  }
-  return sid;
-}
-
-let SESSION_ID = getSessionId();
 
 function handleEnter(event) {
   if (event.key === "Enter") {
@@ -30,34 +19,18 @@ async function askAgent() {
   input.value = "";
 
   try {
-    const response = await fetch(`${API_URL}/ask`, {
+    const response = await fetch(API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        session_id: SESSION_ID,
-        question: question
-      })
+      body: JSON.stringify({ question })
     });
 
     const data = await response.json();
     messages.innerHTML += `<div><b>Agent:</b> ${data.answer}</div>`;
     messages.scrollTop = messages.scrollHeight;
-
   } catch (err) {
     messages.innerHTML += `<div style="color:#f87171;"><b>Error:</b> ${err}</div>`;
   }
-}
-
-async function resetChat() {
-  try {
-    await fetch(`${API_URL}/reset?session_id=${SESSION_ID}`, {
-      method: "POST"
-    });
-  } catch (_) {}
-
-  SESSION_ID = crypto.randomUUID();
-  sessionStorage.setItem("session_id", SESSION_ID);
-  document.getElementById("messages").innerHTML = "";
 }
 
 async function loadTable() {
