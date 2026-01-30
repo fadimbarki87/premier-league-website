@@ -17,9 +17,10 @@ header.top {
   position: relative;
   max-width: 1400px;
   margin: 0 auto 18px;
-  height: 320px; /* ONLY CHANGE: increased height */
+  height: 230px;
 }
 
+/* Side photos sit on top, but the CENTER text will no longer extend under them */
 .side-photo {
   position: absolute;
   top: 10px;
@@ -39,11 +40,14 @@ header.top {
   right: 0;
 }
 
+/* TRUE CENTER + NO OVERLAP */
 .center-brand {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  /* KEY FIX: do not allow this block to reach into photo zones */
   width: min(700px, calc(100% - 520px));
   padding: 0 12px;
 
@@ -149,7 +153,7 @@ button:hover {
   background: #2563eb;
 }
 
-/* ===== TABLE ===== */
+/* ===== TABLE (UNCHANGED LOOK) ===== */
 
 h2 {
   margin: 32px 0 12px;
@@ -188,7 +192,7 @@ thead {
 @media (max-width: 900px) {
   header.top {
     height: auto;
-    margin-bottom: 28px;
+    margin-bottom: 28px; /* KEY: gives breathing room so next section never sits under images */
     display: flex;
     flex-direction: column;
     align-items: center;
